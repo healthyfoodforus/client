@@ -11,7 +11,17 @@ function getYoutube() {
     })
     .done(res => {
       console.log("berhasil dapat video", res)
-      $('#video-content').append(`<center><iframe  width="420" height="315" src="https://www.youtube.com/embed/${res} "></iframe><center>`)
+      $('#video-player').prepend(`
+      <center>
+      <div class="col-4 mb-3">
+        <div class="card mx-auto" >
+          <iframe  width="100%" height="100%" src="https://www.youtube.com/embed/${res.videoId} "></iframe>
+          <div class="card-body">
+            <p class="card-text">${res.description}</p>
+          </div>
+        </div>
+      </div>
+      </center>`)
     })
     .fail(error => {
       console.log(error)
