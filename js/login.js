@@ -44,6 +44,12 @@ function login() {
         localStorage.setItem('token', data.token)
         isLogin(true);
         $('#login-content').hide();
+        $('#navbar-content-before').hide();
+        $('#navbar-content-after').show();
+        $('#main-content').show();
+        $('#video-content').show();
+        $('#eatOut-content').hide();
+        $('#cookHome-content').hide();
     })
     .fail(err => {
         console.log(err)
@@ -59,4 +65,6 @@ function signOut() {
     $('#main-content').hide();
     $('#login-content').hide();
     $('#home-content').show();
+    $('#navbar-content-before').show();
+    $('#navbar-content-after').hide();
 }
