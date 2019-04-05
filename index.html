@@ -147,35 +147,44 @@
     </div>
 
 
-    <!-- GOOGLE MAPS (POSISI MASIH SALAH!!) -->
-    <div id="map" style="width:50%;height:50%"></div>
-    <!-- ========================================= -->
-
+    
     <div class="container-12" id="main-content">
         <div class="row-12" id="video-content">
-            <h1>Hermi's content is here</h1>
-            <form onsubmit="getYoutube()">
-                <input type="text" id="inputTitle"><br>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-        <div class="row-12" id="eatOut-content">
-            <h1>Reyhan's content is here</h1>
+            <h1> Hey why don't find some inspirative healthy-related video here?</h1> <hr> <br>
             <center>
-                <p>Click the button to get your coordinates.</p>
-                <button onclick="getLocation()">Find Restaurants Near Me</button>
+                <form onsubmit="getYoutube()">
+                    <input type="text" id="inputTitle" list="query_vTitle"><br>
+                        <datalist id="query_vTitle">
+                            <option value="healthy food">
+                            <option value="health life-style">
+                            <option value="diet food">
+                            <option value="fitness health">
+                        </datalist>
+                    <button type="submit">Submit</button>
+                </form>
+            </center>
+        </div>
+            
+            <div class="row-12" id="eatOut-content">
+            <center>
+                <h1>Let us suggest which restaurant to have some healthy foods around you</h1> <hr>
+                    <p>Click the button to get your coordinates.</p>
+                    <button onclick="getLocation()">Find Restaurants Near Me</button>
+                    <!-- GOOGLE MAPS (POSISI MASIH SALAH!!) -->
+                    <div id="map" style="height:400px; width:80%"></div>
+                    <!-- ========================================= -->
                 <p id="demo"></p>
             </center>
-
 
             <center>
                 <!-- ZOMATO -->
                 <div id="listOfRestaurants"></div>
             </center>
-
         </div>
+
         <div class="row-12" id="cookHome-content">
-            <h1>William's content is here</h1>
+            <center>
+            <h1>Please fill the form below to find your perfect healthy recipe</h1>
             <form id="recipe_form" onsubmit="getRecipe()">
                 <div class="container">
                     <h1>Find Your Recipe</h1>
@@ -188,6 +197,7 @@
                             <option value="beef">
                             <option value="chicken">
                             <option value="pork">
+                            <option value="vegan">
                         </datalist>
                     <br><br>
                     <label for="recipeNum"><b>Recipe Number</b></label> <br>
@@ -210,6 +220,7 @@
                 <div class="row" id="recipeRow"> </div>   
             </div>
         </div>
+        </center>
     </div>
 
     <script src="https://apis.google.com/js/platform.js" async defer></script>
