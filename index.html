@@ -176,6 +176,39 @@
         </div>
         <div class="row-12" id="cookHome-content">
             <h1>William's content is here</h1>
+            <form id="recipe_form" onsubmit="getRecipe()">
+                <div class="container">
+                    <h1>Find Your Recipe</h1>
+                    <hr>
+
+                    <br><br>
+                    <label for="protein"><b>Choose Protein Main Source: </b></label> <br>
+                    <input type="text" list="query_q" name="protein" id="proteinInput" required />
+                        <datalist id="query_q">
+                            <option value="beef">
+                            <option value="chicken">
+                            <option value="pork">
+                        </datalist>
+                    <br><br>
+                    <label for="recipeNum"><b>Recipe Number</b></label> <br>
+                    <input type="text" placeholder="Enter 1-5" name="recipeNum" id="recipeNumInput" required>
+                    <br><br>
+                    <label for="health"><b>Choose Health Preference: </b></label> <br>
+                    <input type="text" list="query_health" name="health" id="healthInput" required />
+                        <datalist id="query_health">
+                            <option value="peanut-free">
+                            <option value="sugar-conscious">
+                            <option value="alcohol-free">
+                            <option value="gluten-free">
+                            <option value="dairy-free">
+                        </datalist>
+                    <br><br>
+                    <input type="submit" value="Get Recipe" id="submit_button"></input>
+                </div>
+            </form>
+            <div class="container" id="recipe-list">
+                <div class="row" id="recipeRow"> </div>   
+            </div>
         </div>
     </div>
 
@@ -191,6 +224,10 @@
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATKeNeYrvkfzGDZZe6kweRSFovJXP1Qmg&callback=initMap">
         </script>
+    <script src= "./js/index.js"></script>
+    <script src= "./js/login.js"></script> 
+    <script src= "./js/main.js"></script>
+    <script src= "./js/recipe.js"></script>
 </body>
 
 </html>
