@@ -39,6 +39,27 @@ $(document).ready(function() {
         $('#register_form').hide()
         $('#login_form').show()
     })
+
+    $('#home_click').click(function() {
+        console.log("show find video")
+        $('#video-content').show();
+        $('#eatOut-content').hide();
+        $('#cookHome-content').hide();
+    })
+
+    $('#eatOut_click').click(function() {
+        console.log("show find resto")
+        $('#video-content').hide()
+        $('#eatOut-content').show();
+        $('#cookHome-content').hide();
+    })
+
+    $('#cookHome_click').click(function() {
+        console.log("show find recipe")
+        $('#video-content').hide()
+        $('#eatOut-content').hide();
+        $('#cookHome-content').show();
+    })
 })
 
 function register() {
@@ -66,8 +87,12 @@ function isLogin(input) {
         console.log("login is ===>", input)
         $('#login-content').hide();
         $('#main-content').hide();
+        $('#navbar-content-before').show();
+        $('#navbar-content-after').hide();
     } else {
         console.log("login is ===>", input)
         $('#main-content').show();
+        $('#navbar-content-before').hide();
+        $('#navbar-content-after').show();
     }
 }
