@@ -24,43 +24,40 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="./public/style.css" />
+
+    <!-- SWAL -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 </head>
 
 <body>
-    <div class="container-12" id="navbar-content-before">
-        <div class="col-12" style="background-color: #ffff99">
-            <div class="row ml-2 pt-2 pb-2">
+        <ul class="nav nav-pills" id="navbar-content-before" style="background-color:#ffff99">
                 <div class="col-10">
-                    <h3>Get Healthy with Reyhan Huditama</h3>
+                    <h6 style="margin-top:1.1%">Get Healthy with Reyhan Huditama</h6>
                 </div>
-                <div class="col-1">
-                    <a class="btn-edt" id="register_click" href="#">Register</a>
-                </div>
-                <div class="col-1">
-                    <a class="btn-edt" href="#" id="login_click">Sign in</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-12" id="navbar-content-after">
-        <div class="col-12" style="background-color:#ffbb99">
-            <div class="row ml-2 pt-2 pb-2">
-                <div class="col-7" id="home_click">
-                    <h3>Get Healthy with Reyhan Huditama</h3>
-                </div>
-                <div class="col-2">
-                    <a class="btn-edt" id="eatOut_click" href="#">Eating Out</a>
-                </div>
-                <div class="col-2">
-                    <a class="btn-edt" href="#" id="cookHome_click">Cook at Home</a>
-                </div>
-                <div class="col-1">
-                    <a class="btn-edt" href="#" onclick="signOut()" id="sign_out">Sign out</a>
-                </div>
-            </div>
-        </div>
-    </div>
+                <li class="nav-item">
+                    <a class="nav-link" id="register_click" href="#" style="color:black">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="login_click" style="color:black">Sign in</a>
+                </li>
+            </ul>
+            <ul class="nav nav-pills" id="navbar-content-after" style="background-color:yellow">
+                <li class="nav-item">
+                    <a class="nav-link" id="home_click" href="#" style="color:black">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                        aria-expanded="false" style="color:black">ACTIONS</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" id="eatOut_click" href="#" style="color:black">Eating Out</a>
+                        <a class="dropdown-item" id="cookHome_click" style="color:black">Cook at Home</a>
+                        <a class="dropdown-item" href="#" onclick="signOut()" id="sign_out" style="color:black">Sign out</a>
+                    </div>
+                </li>
+            </ul>
 
     <div class="container-12" id="home-content">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -74,10 +71,8 @@
                     <img class="d-block w-100" src="./assets/gethealthy1.jpeg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                         <div class="col w-100" style="color: black; background-color: white">
-                            <a href="#">
-                                <h1>REGISTER NOW</h1>
-                            </a>
-                            <h3>New Healthy Recipe Available Now!</h3>
+                            <a href="#" id="register_click"> <h1>REGISTER NOW</h1> </a>
+                            <h3>New Healthy Recipe Available Based on Your Request!</h3>
                         </div>
                     </div>
                 </div>
@@ -101,43 +96,35 @@
 
     <div class="container-12" id="login-content">
         <center>
-            <h2> You need to register/login to access our content. </h2>
+            <h2 style="margin-top:6%"> You need to register/login to access our content. </h2>
         </center>
         <br>
         <center>
-            <form id="login_form" onsubmit="login()">
-                <div class="container">
-
-                    <h1>Login</h1>
-                    <hr>
-
-                    <b>Email:</b><br>
-                    <input type="text" name="email" id="emailLogin">
-                    <br><br>
-                    <b>Password:</b><br>
-                    <input type="password" name="pw" id="pwLogin">
-                    <br><br>
-                    <input type="submit" value="Submit" id="submit_button">
-                    <br><br>
-                    <div class="g-signin2" data-onsuccess="onSignIn" id="google_signin"></div>
+            <form id="login_form" onsubmit="login()" style="width:30%;margin-top:6%">
+                <div class="form-group">
+                    <input type="email" class="form-control" aria-describedby="emailHelp"
+                        placeholder="Enter email here!" name="email" id="emailLogin" required>
                 </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Enter password here!" name="pw"
+                        id="pwLogin" required>
+                </div>
+                <button type="submit" class="btn btn-primary" id="submit_button">Submit</button>
+                <br><br>
+                <h5 style="font-weight:bold">OR Sign In with Google!</h5><br>
+                <div class="g-signin2" data-onsuccess="onSignIn" id="google_signin"></div>
             </form>
 
-            <form id="register_form" onsubmit="register()">
-                <div class="container">
-                    <h1>Register</h1>
-                    <hr>
-
-                    <label for="email"><b>Email:</b></label> <br>
-                    <input type="text" placeholder="Enter Email" name="email" id="emailReg" required>
-                    <br><br>
-                    <label for="psw"><b>Password</b></label> <br>
-                    <input type="password" placeholder="Enter Password" name="psw" id="pwReg" required>
-                    <br><br>
-
-                    <input type="submit" value="Submit" id="register_button"></input>
+            <form id="register_form" onsubmit="register()" style="width:30%;margin-top:6%">
+                <div class="form-group">
+                    <input type="email" class="form-control" aria-describedby="emailHelp"
+                        placeholder="Enter email here!" name="email" id="emailReg" required>
                 </div>
-
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Enter password here!" name="psw" id="pwReg"
+                        required>
+                </div>
+                <button type="submit" class="btn btn-primary" id="register_button">Submit</button>
                 <div class="container signin">
                     <br>
                     <p>Already have an account? <a href="#" id="sign_in">Sign in</a></p>
@@ -150,32 +137,46 @@
     
     <div class="container-12" id="main-content">
         <div class="row-12" id="video-content">
-            <h1> Hey why don't find some inspirative healthy-related video here?</h1> <hr> <br>
             <center>
-                <form onsubmit="getYoutube()">
-                    <input type="text" id="inputTitle" list="query_vTitle"><br>
-                        <datalist id="query_vTitle">
-                            <option value="healthy food">
-                            <option value="health life-style">
-                            <option value="diet food">
-                            <option value="fitness health">
-                        </datalist>
-                    <button type="submit">Submit</button>
+                <h3 style="margin-top:2%"> Hey why don't find some inspirative healthy-related video here?</h3><hr>
+                <form onsubmit="getYoutube()" style="margin-left:40%">
+                    <div class="form-row align-items-center">
+                        <div class="col-sm-3 my-1">
+                            <input type="text" class="form-control" id="inputTitle" list="query_vTitle"
+                                placeholder="Search title..">
+                            <datalist id="query_vTitle">
+                                <option value="healthy food">
+                                <option value="health life-style">
+                                <option value="diet food">
+                                <option value="fitness health">
+                            </datalist>
+                        </div>
+                        <div class="col-auto my-1">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </div>
                 </form>
+                <div class="container-12">
+                    <div class="row-12 justify-content-center">
+                        <div id="video-player"></div>
+                    </div>
+                </div>
             </center>
+            
         </div>
             
-            <div class="row-12" id="eatOut-content">
+        <div class="row-12" id="eatOut-content">
             <center>
-                <h1>Let us suggest which restaurant to have some healthy foods around you</h1> <hr>
-                    <p>Click the button to get your coordinates.</p>
-                    <button onclick="getLocation()">Find Restaurants Near Me</button>
-                    <!-- GOOGLE MAPS (POSISI MASIH SALAH!!) -->
-                    <div id="map" style="height:400px; width:80%"></div>
-                    <!-- ========================================= -->
+                <h3 style="margin-top:3%">Let us suggest which restaurant to have some healthy foods around you!</h3>
+                <hr>
+                <p>Click the button to get your coordinates.</p>
+                <button onclick="getLocation()" class="btn btn-primary">Find Restaurants Near Me</button><br><br>
+                <!-- GOOGLE MAPS (POSISI MASIH SALAH!!) -->
+                <div id="map" style="height:400px; width:80%"></div>
+                <!-- ========================================= -->
                 <p id="demo"></p>
             </center>
-
             <center>
                 <!-- ZOMATO -->
                 <div id="listOfRestaurants"></div>
@@ -217,7 +218,7 @@
                 </div>
             </form>
             <div class="container" id="recipe-list">
-                <div class="row" id="recipeRow"> </div>   
+                <div class="row justify-content-center" id="recipeRow"> </div>   
             </div>
         </div>
         </center>

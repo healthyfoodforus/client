@@ -41,6 +41,13 @@ function login() {
         }
     })
     .done(data => {
+        Swal.fire({
+            position: 'top-end',
+            type: 'success',
+            title: 'Login is success',
+            showConfirmButton: false,
+            timer: 1500
+        })
         localStorage.setItem('token', data.token)
         isLogin(true);
         $('#login-content').hide();
@@ -53,18 +60,44 @@ function login() {
     })
     .fail(err => {
         console.log(err)
+        Swal.fire({
+            position: 'top-end',
+            type: 'error',
+            title: 'Username/password is wrong',
+            showConfirmButton: false,
+            timer: 1500
+        })
     })
 } 
 
 function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-        console.log('User signed out.');
-    });
-    localStorage.removeItem('token');
-    $('#main-content').hide();
-    $('#login-content').hide();
-    $('#home-content').show();
-    $('#navbar-content-before').show();
-    $('#navbar-content-after').hide();
+    Swal.fire({
+        title: 'Do you want to leave?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sign Out'
+      }).then((result) => {
+        if (result.value) {
+            Swal.fire({
+                type: 'success',
+                title: 'Log out is success',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+            localStorage.removeItem('token');
+            $('#main-content').hide();
+            $('#login-content').hide();
+            $('#home-content').show();
+            $('#navbar-content-before').show();
+            $('#navbar-content-after').hide();
+        }
+      })
+    
+    
 }
