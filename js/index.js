@@ -42,6 +42,7 @@ $(document).ready(function() {
 
     $('#home_click').click(function() {
         console.log("show find video")
+        $('#home-content').hide();
         $('#video-content').show();
         $('#eatOut-content').hide();
         $('#cookHome-content').hide();
@@ -49,13 +50,16 @@ $(document).ready(function() {
 
     $('#eatOut_click').click(function() {
         console.log("show find resto")
+        $('#home-content').hide();
         $('#video-content').hide()
         $('#eatOut-content').show();
         $('#cookHome-content').hide();
+        $('#map').hide();
     })
 
     $('#cookHome_click').click(function() {
         console.log("show find recipe")
+        $('#home-content').hide();
         $('#video-content').hide()
         $('#eatOut-content').hide();
         $('#cookHome-content').show();
