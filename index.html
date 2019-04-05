@@ -125,7 +125,7 @@
                 <input type="password" placeholder="Enter Password" name="psw" id="pwReg" required>
                 <br><br>
 
-                <input type="submit" value="Submit" id="submit_button"></input>
+                <input type="submit" value="Submit" id="register_button"></input>
             </div>
             
             <div class="container signin">
@@ -139,19 +139,23 @@
     <div class="container-12" id="main-content">
         <div class="row-12" id="video-content">
             <h1>Hermi's content is here</h1>
+            <form onsubmit="getYoutube()">
+                <input type="text" id="inputTitle"><br>
+                <button type="submit">Submit</button>
+            </form>
         </div>
         <div class="row-12" id="eatOut-content">
             <h1>Reyhan's content is here</h1>
         </div>
         <div class="row-12" id="cookHome-content">
             <h1>William's content is here</h1>
-            
         </div>
     </div>
 
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src= "./js/index.js"></script>
     <script src= "./js/login.js"></script> 
-    <script src= "./js/main.js"></script> 
+    <script src= "./js/main.js"></script>
+    <script src="./js/videos.js"></script>
 </body>
 </html>
